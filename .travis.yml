@@ -24,6 +24,7 @@ install:
   - "pip install tox"
 script:
   - tox
+  - make test_translations
 branches:
     only:
       - master

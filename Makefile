@@ -46,6 +46,10 @@ compile_translations:
 generate_dummy_translations:
 	i18n_tool dummy
 
+# Test translation files
+test_translations:
+	i18n_tool validate
+
 # check if translation files are up-to-date
 detect_changed_source_translations:
 	i18n_tool changed
@@ -70,7 +74,7 @@ test-python:
 	coverage run manage.py test openassessment
 
 render-templates:
-	./scripts/render-templates.sh
+	./scripts/render-templates.shz
 
 test-js: render-templates
 	./scripts/test-js.sh
