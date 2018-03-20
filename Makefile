@@ -74,7 +74,7 @@ test-python:
 	coverage run manage.py test openassessment
 
 render-templates:
-	./scripts/render-templates.shz
+	./scripts/render-templates.sh
 
 test-js: render-templates
 	./scripts/test-js.sh
