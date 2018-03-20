@@ -48,7 +48,7 @@ generate_dummy_translations:
 
 # Test translation files
 test_translations:
-	i18n_tool validate
+	cd openassessment && i18n_tool validate
 
 # check if translation files are up-to-date
 detect_changed_source_translations:
