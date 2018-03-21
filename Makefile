@@ -69,6 +69,7 @@ quality:
 	./node_modules/jscs/bin/jscs $(STATIC_JS)/src --verbose
 	./scripts/run-pep8.sh
 	./scripts/run-pylint.sh
+	cd ./openassessment/ && i18n_tool validate
 
 test-python:
 	coverage run manage.py test openassessment
