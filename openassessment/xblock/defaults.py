@@ -17,46 +17,46 @@ DEFAULT_PROMPT = ugettext_lazy("""
 
 DEFAULT_RUBRIC_CRITERIA = [
     {
-        'name': ugettext_lazy("Ideas"),
+        'name': "Ideas" ,
         'label': ugettext_lazy("Ideas"),
         'prompt': ugettext_lazy("Determine if there is a unifying theme or main idea."),
         'order_num': 0,
         'feedback': ugettext_lazy('optional'),
         'options': [
             {
-                'order_num': 0, 'points': 0, 'name': ugettext_lazy('Poor'), 'label': ugettext_lazy('Poor'),
+                'order_num': 0, 'points': 0, 'name': 'Poor', 'label': ugettext_lazy('Poor'),
                 'explanation': ugettext_lazy("""Difficult for the reader to discern the main idea.  Too brief or too repetitive to establish or maintain a focus.""")
             },
             {
-                'order_num': 1, 'points': 3, 'name': ugettext_lazy('Fair'), 'label': ugettext_lazy('Fair'),
+                'order_num': 1, 'points': 3, 'name': 'Fair', 'label': ugettext_lazy('Fair'),
                 'explanation': ugettext_lazy("""Presents a unifying theme or main idea, but may include minor tangents.  Stays somewhat focused on topic and task.""")
             },
             {
-                'order_num': 2, 'points': 5, 'name': ugettext_lazy('Good'), 'label': ugettext_lazy('Good'),
+                'order_num': 2, 'points': 5, 'name': 'Good', 'label': ugettext_lazy('Good'),
                 'explanation': ugettext_lazy("""Presents a unifying theme or main idea without going off on tangents.  Stays completely focused on topic and task.""")
             },
         ],
     },
     {
-        'name': ugettext_lazy("Content"),
+        'name': "Content",
         'label': ugettext_lazy("Content"),
         'prompt': ugettext_lazy("Assess the content of the submission"),
         'order_num': 1,
         'options': [
             {
-                'order_num': 0, 'points': 0, 'name': ugettext_lazy('Poor'), 'label': ugettext_lazy('Poor'),
+                'order_num': 0, 'points': 0, 'name': 'Poor', 'label': ugettext_lazy('Poor'),
                 'explanation': ugettext_lazy("""Includes little information with few or no details or unrelated details.  Unsuccessful in attempts to explore any facets of the topic.""")
             },
             {
-                'order_num': 1, 'points': 1, 'name': ugettext_lazy('Fair'), 'label': ugettext_lazy('Fair'),
+                'order_num': 1, 'points': 1, 'name': 'Fair', 'label': ugettext_lazy('Fair'),
                 'explanation': ugettext_lazy("""Includes little information and few or no details.  Explores only one or two facets of the topic.""")
             },
             {
-                'order_num': 2, 'points': 3, 'name': ugettext_lazy('Good'), 'label': ugettext_lazy('Good'),
+                'order_num': 2, 'points': 3, 'name': 'Good', 'label': ugettext_lazy('Good'),
                 'explanation': ugettext_lazy("""Includes sufficient information and supporting details. (Details may not be fully developed; ideas may be listed.)  Explores some facets of the topic.""")
             },
             {
-                'order_num': 3, 'points': 3, 'name': ugettext_lazy('Excellent'), 'label': ugettext_lazy('Excellent'),
+                'order_num': 3, 'points': 3, 'name': 'Excellent', 'label': ugettext_lazy('Excellent'),
                 'explanation': ugettext_lazy("""Includes in-depth information and exceptional supporting details that are fully developed.  Explores all facets of the topic.""")
             },
         ],
@@ -89,7 +89,7 @@ DEFAULT_EXAMPLE_ANSWER_2 = (
 )
 
 DEFAULT_STUDENT_TRAINING = {
-    "name": ugettext_lazy("student-training"),
+    "name": "student-training",
     "start": None,
     "due": None,
     "examples": [
@@ -97,12 +97,12 @@ DEFAULT_STUDENT_TRAINING = {
             "answer": DEFAULT_EXAMPLE_ANSWER,
             "options_selected": [
                 {
-                    "criterion": ugettext_lazy("Ideas"),
-                    "option": ugettext_lazy("Fair")
+                    "criterion": "Ideas",
+                    "option": "Fair"
                 },
                 {
-                    "criterion": ugettext_lazy("Content"),
-                    "option": ugettext_lazy("Good")
+                    "criterion": "Content",
+                    "option": "Good"
                 }
             ]
         },
@@ -110,12 +110,12 @@ DEFAULT_STUDENT_TRAINING = {
             "answer": DEFAULT_EXAMPLE_ANSWER_2,
             "options_selected": [
                 {
-                    "criterion": ugettext_lazy("Ideas"),
-                    "option": ugettext_lazy("Poor")
+                    "criterion": "Ideas",
+                    "option": "Poor"
                 },
                 {
-                    "criterion": ugettext_lazy("Content"),
-                    "option": ugettext_lazy("Good")
+                    "criterion": "Content",
+                    "option": "Good"
                 }
             ]
         }
@@ -129,7 +129,7 @@ DEFAULT_DUE = "2029-01-01T00:00"
 # configured. If no configuration is specified, this is the default assessment
 # module(s) associated with the XBlock.
 DEFAULT_PEER_ASSESSMENT = {
-    "name": ugettext_lazy("peer-assessment"),
+    "name": "peer-assessment",
     "start": DEFAULT_START,
     "due": DEFAULT_DUE,
     "must_grade": 5,
@@ -137,13 +137,13 @@ DEFAULT_PEER_ASSESSMENT = {
 }
 
 DEFAULT_SELF_ASSESSMENT = {
-    "name": ugettext_lazy("self-assessment"),
+    "name": "self-assessment",
     "start": DEFAULT_START,
     "due": DEFAULT_DUE,
 }
 
 DEFAULT_STAFF_ASSESSMENT = {
-    "name": ugettext_lazy("staff-assessment"),
+    "name": "staff-assessment",
     "start": DEFAULT_START,
     "due": DEFAULT_DUE,
     "required": False,
@@ -157,8 +157,8 @@ DEFAULT_ASSESSMENT_MODULES = [
 ]
 
 DEFAULT_EDITOR_ASSESSMENTS_ORDER = [
-    ugettext_lazy("student-training"),
-    ugettext_lazy("peer-assessment"),
-    ugettext_lazy("self-assessment"),
-    ugettext_lazy("staff-assessment"),
+    "student-training",
+    "peer-assessment",
+    "self-assessment",
+    "staff-assessment",
 ]

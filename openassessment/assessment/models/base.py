@@ -23,6 +23,8 @@ from django.db import models
 from django.utils.timezone import now
 from lazy import lazy
 
+from openassessment.xblock.data_conversion import LazyEncoder
+
 import logging
 logger = logging.getLogger("openassessment.assessment.models")
 
@@ -103,7 +105,7 @@ class Rubric(models.Model):
         rubric_dict.pop("id", None)
         rubric_dict.pop("content_hash", None)
 
-        canonical_form = json.dumps(rubric_dict, sort_keys=True)
+        canonical_form = json.dumps(rubric_dict, sort_keys=True, cls=LazyEncoder)
         return sha1(canonical_form).hexdigest()
 
     @staticmethod
@@ -135,7 +137,7 @@ class Rubric(models.Model):
             }
             for criterion in rubric_dict.get('criteria', [])
         ]
-        canonical_form = json.dumps(structure, sort_keys=True)
+        canonical_form = json.dumps(structure, sort_keys=True, cls=LazyEncoder)
         return sha1(canonical_form).hexdigest()
 
 

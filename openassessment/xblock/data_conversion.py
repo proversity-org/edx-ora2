@@ -133,7 +133,7 @@ def create_prompts_list(prompt_or_serialized_prompts):
     else:
         try:
             prompts = json.loads(prompt_or_serialized_prompts)
-        except Exception as e:
+        except ValueError:
 
             prompts = [
                 {

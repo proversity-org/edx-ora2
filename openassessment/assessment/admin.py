@@ -12,6 +12,7 @@ from openassessment.assessment.models import (
     AIGradingWorkflow, AITrainingWorkflow, AIClassifierSet, AIClassifier
 )
 from openassessment.assessment.serializers import RubricSerializer
+from openassessment.xblock.data_conversion import LazyEncoder
 
 
 class RubricAdmin(admin.ModelAdmin):
@@ -40,7 +41,7 @@ class RubricAdmin(admin.ModelAdmin):
         """Full JSON string of rubric, indented and HTML formatted."""
         rubric_data = RubricSerializer.serialized_from_cache(rubric_obj)
         return u"<pre>\n{}\n</pre>".format(
-            html.escape(json.dumps(rubric_data, sort_keys=True, indent=4))
+            html.escape(json.dumps(rubric_data, sort_keys=True, indent=4, cls=LazyEncoder))
         )
     data.allow_tags = True
 
