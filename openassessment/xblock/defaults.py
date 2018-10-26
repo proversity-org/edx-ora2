@@ -17,7 +17,7 @@ DEFAULT_PROMPT = ugettext_lazy("""
 
 DEFAULT_RUBRIC_CRITERIA = [
     {
-        'name': "Ideas" ,
+        'name': "Ideas",
         'label': ugettext_lazy("Ideas"),
         'prompt': ugettext_lazy("Determine if there is a unifying theme or main idea."),
         'order_num': 0,

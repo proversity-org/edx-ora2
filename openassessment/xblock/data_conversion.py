@@ -10,6 +10,11 @@ from django.core.serializers.json import DjangoJSONEncoder
 
 
 class LazyEncoder(DjangoJSONEncoder):
+    """
+    Helper enconder class to serialize lazy translation objects.
+    See reference here:
+    https://docs.djangoproject.com/en/1.8/topics/serialization/#serialization-formats-json.
+    """
     def default(self, obj):
         if isinstance(obj, Promise):
             return force_text(obj)
@@ -125,16 +130,14 @@ def create_prompts_list(prompt_or_serialized_prompts):
         prompt_or_serialized_prompts = ''
 
     if type(prompt_or_serialized_prompts) is dict:
-        # Lazy translation objects cannot be parsed to json normally
-        # https://docs.djangoproject.com/en/1.8/topics/serialization/#serialization-formats-json
-        # we need to pass it with a custom encoder.
-        decode_prompts = json.dumps(prompt_or_serialized_prompts, cls=LazyEncoder)
-        prompts = json.loads(decode_prompts)
+        # Lazy translation objects cannot be serialized to json normally.
+        # We need to pass them with a custom encoder:
+        serialized_prompts = json.dumps(prompt_or_serialized_prompts, cls=LazyEncoder)
+        prompts = json.loads(serialized_prompts)
     else:
         try:
             prompts = json.loads(prompt_or_serialized_prompts)
         except ValueError:
-
             prompts = [
                 {
                     'description': prompt_or_serialized_prompts,
